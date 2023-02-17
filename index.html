@@ -13,72 +13,27 @@
   ></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function MinutesToHours() {
-      const [amount, setAmount] = React.useState();
-      const [inverted, setInverted] = React.useState(false);
-      const reset = () => setAmount(0);
-      const onInverted = () => setInverted((current) => !current);
-      const onChange = (event) => {
-        setAmount(event.target.value);
-      };
+    function Btn({ banana, big }) {
       return (
-        <div>
-          <div>
-            <label htmlFor="minutes">Minutes</label>
-            <input
-              id="minutes"
-              value={inverted ? amount * 60 : amount}
-              onChange={onChange}
-              placeholder="Minutes"
-              type="number"
-              disabled={inverted}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="hours">Hours</label>
-            <input
-              id="hours"
-              // 소수점 둘째자리로 표현
-              value={inverted ? amount : Math.round((amount / 60) * 100) / 100}
-              placeholder="Hours"
-              type="number"
-              onChange={onChange}
-              disabled={!inverted}
-            />
-          </div>
-
-          <button onClick={reset}>reset</button>
-          <button onClick={onInverted}>
-            {inverted ? "Turn back" : "Invert"}
-          </button>
-        </div>
-      );
-    }
-    function KmToMiles() {
-      return (
-        <div>
-          <h1>KM 2 Miles</h1>
-        </div>
+        <button
+          style={{
+            color: "white",
+            backgroundColor: "tomato",
+            padding: "10px 20px",
+            borderRadius: 10,
+            border: 0,
+            fontSize: big ? 18 : 16,
+          }}
+        >
+          {banana}
+        </button>
       );
     }
     function App() {
-      const [index, setIndex] = React.useState("xx");
-      const onSelect = (event) => {
-        setIndex(event.target.value);
-      };
       return (
         <div>
-          <h1>Super Convertor</h1>
-          <select value={index} onChange={onSelect}>
-            <option value="xx">select your units</option>
-            <option value="0">MinutesToHours</option>
-            <option value="1">Km2Miles</option>
-          </select>
-          <br />
-          {index === "xx" ? "Please select your units" : null}
-          {index === "0" ? <MinutesToHours /> : null}
-          {index === "1" ? <KmToMiles /> : null}
+          <Btn banana="Save Change" big={true} />
+          <Btn banana="Continue" big={false} />
         </div>
       );
     }
