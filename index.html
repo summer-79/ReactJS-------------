@@ -29,7 +29,7 @@
       </button>
     );
     // 컴포넌트는 대문자로 시작 // 안 그러면 바벨이 html로 착각함
-    const Container = (
+    const Container = () => (
       <div>
         <Title />
         <Button />
@@ -37,6 +37,6 @@
     );
 
     const newRoot = ReactDOM.createRoot(document.getElementById("root"));
-    newRoot.render(Container);
+    newRoot.render(<Container />);
   </script>
 </html>
