@@ -9,13 +9,19 @@ function App() {
 
   console.log("all is rendered");
   useEffect(() => {
-    console.log("CALL THE API ... only one render");
+    console.log("I run only once");
   }, []);
   useEffect(() => {
-    if (keyword != "" && keyword.length > 5) {
-      console.log("SEARCH FOR", keyword);
+    if (keyword !== "" && keyword.length > 5) {
+      console.log("I run when 'keyword' changes", keyword);
     }
   }, [keyword]);
+  useEffect(() => {
+    console.log("I run when 'value' changes", value);
+  }, [value]);
+  useEffect(() => {
+    console.log("I run when 'keyword' & 'value' changes");
+  }, [keyword, value]);
 
   return (
     <div className="App">
