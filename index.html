@@ -20,7 +20,10 @@
         setAmount(event.target.value);
       };
       const reset = () => setAmount(0);
-      const onFlip = () => setFlipped((current) => !current);
+      const onFlip = () => {
+        reset();
+        setFlipped((current) => !current);
+      };
       return (
         <div>
           <h1>Super Convertor</h1>
@@ -41,7 +44,8 @@
             <label htmlFor="hours">Hours</label>
             <input
               id="hours"
-              value={!flipped ? Math.round(amount / 60) : amount}
+              // 소수점 둘째자리로 표현
+              value={!flipped ? Math.round((amount / 60) * 100) / 100 : amount}
               placeholder="Hours"
               type="number"
               onChange={onChange}
