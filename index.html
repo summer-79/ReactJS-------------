@@ -32,8 +32,8 @@
       );
     }
     Btn.propTypes = {
-      text: PropTypes.string,
-      fontSize: PropTypes.number,
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number.isRequired,
     };
     const MemorizedBtn = React.memo(Btn);
     function App() {
@@ -42,7 +42,7 @@
       return (
         <div>
           <MemorizedBtn text={value} fontSize={16} />
-          <MemorizedBtn fontSize={"Continue"} text={14} />
+          <MemorizedBtn text={"Continue"} />
         </div>
       );
     }
