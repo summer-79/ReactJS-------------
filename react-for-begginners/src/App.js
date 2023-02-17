@@ -20,7 +20,9 @@ function App() {
     console.log("I run when 'value' changes", value);
   }, [value]);
   useEffect(() => {
-    console.log("I run when 'keyword' & 'value' changes");
+    console.log(
+      "I run when 'keyword' & 'value' changes(둘 중 하나라도 바뀌면 실행)"
+    );
   }, [keyword, value]);
 
   return (
