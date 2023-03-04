@@ -15,17 +15,21 @@ function App() {
   }, []);
   return (
     <div>
-      <h1>Coin Tracker</h1>
-      {loading ? <strong>Loading...</strong> : null}
-      <ul>
-        {coin.map((c) => {
-          return (
-            <li key={c.id}>
-              {c.name} ({c.symbol}): ${c.quotes.USD.price} USD
-            </li>
-          );
-        })}
-      </ul>
+      <h1>Coin Tracker ({loading ? "" : `${coin.length}`})</h1>
+      {/* <h1>Coin Tracker ({loading ? "" : coin.length})</h1> 이거도 가능 */}
+      {loading ? (
+        <strong>Loading...</strong>
+      ) : (
+        <select>
+          {coin.map((c) => {
+            return (
+              <option key={c.id}>
+                {c.name} ({c.symbol}): ${c.quotes.USD.price} USD
+              </option>
+            );
+          })}
+        </select>
+      )}
     </div>
   );
 }
