@@ -1,11 +1,11 @@
-function Movie({ item }) {
+function Movie({ coverImg, title, summary, genres }) {
   return (
     <div>
-      <img src={item.medium_cover_image} alt={item.title} />
-      <h3>{item.title}</h3>
-      <p>{item.summary}</p>
+      <img src={coverImg} alt={title} />
+      <h3>{title}</h3>
+      <p>{summary}</p>
       <ul>
-        {item.genres.map((g) => (
+        {genres.map((g) => (
           <li key={g}>{g}</li>
         ))}
       </ul>

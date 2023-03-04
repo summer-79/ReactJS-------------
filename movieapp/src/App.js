@@ -24,7 +24,14 @@ function App() {
       {loading ? (
         <strong>Loading...</strong>
       ) : (
-        movie.map((item) => <Movie item={item} />)
+        movie.map((item) => (
+          <Movie
+            coverImg={item.medium_cover_image}
+            title={item.title}
+            summary={item.summary}
+            genres={item.genres}
+          />
+        ))
       )}
     </div>
   );
