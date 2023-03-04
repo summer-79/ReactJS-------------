@@ -8,7 +8,7 @@ function App() {
     const response = await fetch(
       "https://yts.mx/api/v2/list_movies.json?sort_by=year&minimum_rating=8.5"
     );
-    const json = response.json();
+    const json = await response.json();
     setMovie(json.data.movies);
     setLoading(false);
   };
