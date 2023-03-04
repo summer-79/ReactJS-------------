@@ -26,6 +26,7 @@ function App() {
       ) : (
         movie.map((item) => (
           <Movie
+            key={item.id}
             coverImg={item.medium_cover_image}
             title={item.title}
             summary={item.summary}
